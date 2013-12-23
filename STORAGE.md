@@ -80,9 +80,12 @@ Schema Version
 
             P = xA6 = 1010 0110 = 101 00110
     thus
+    
             registerWidth - 1 = 5
             registerWidth = 6
+    
     and
+    
             log2(numberOfRegisters) = 6
             numberOfRegisters = 2^6 = 64
 
@@ -114,13 +117,13 @@ Schema Version
 
         The data bytes encode the register indices and values in `(log2(numberOfRegisters) + registerWidth)`-bit-wide "short-words". Each short-word is a bit-packed register `index`/register `value` pair.
 
-            * The `index` is encoded in the highest `log2(numberOfRegisters)` bits of the short-word.
-            * The `value` is encoded in the lowest `registerWidth` bits of the short-word.
+        * The `index` is encoded in the highest `log2(numberOfRegisters)` bits of the short-word.
+        * The `value` is encoded in the lowest `registerWidth` bits of the short-word.
 
         The short-words are packed into bytes from the top of the zero-th data byte to the bottom of the last data byte, with the high bits of a short-word toward the high bits of a byte.
 
-            * If `BITS = (registerWidth + log2(numberOfRegisters)) * numberOfRegisters` is not divisible by 8, then `BITS % 8` padding bits are added to the _bottom_ of the _last_ byte of the array.
-            * The short-words are stored in ascending `index` order.
+        * If `BITS = (registerWidth + log2(numberOfRegisters)) * numberOfRegisters` is not divisible by 8, then `BITS % 8` padding bits are added to the _bottom_ of the _last_ byte of the array.
+        * The short-words are stored in ascending `index` order.
 
         For example, if `log2(numberOfRegisters) = 11` and `registerWidth = 6`, and if the  register index/value pairs are `(11, 6)` and `(1099, 19)`:
 
@@ -137,8 +140,8 @@ Schema Version
 
         The data bytes encode the register values in `registerWidth`-bit-wide, big-endian "short-words". The short words are written from the top of the zero-th byte of the array to the bottom of the last byte of the array, with the high bits of a short-word toward the high bits of a byte.
 
-            * If `BITS = registerWidth * numberOfRegisters` is not divisible by 8, then `BITS % 8` padding bits are added to the _bottom_ of the _last_ byte of the array.
-            * The short-words are stored in ascending index order.
+        * If `BITS = registerWidth * numberOfRegisters` is not divisible by 8, then `BITS % 8` padding bits are added to the _bottom_ of the _last_ byte of the array.
+        * The short-words are stored in ascending index order.
 
         For example, if `registerWidth = 5` and `numberOfRegisters = 4`, and if the register index/value pairs are `(0, 0), (1,1), (2,2), (3,3)`:
 
