@@ -131,8 +131,8 @@ Schema Version
             = [(0b00000001011, 0b000110), (0b10001001011, 0b010011), 0b000000]  # as two binary-encoded pairs and 6 bits of padding
             = [(0b00000001011000110), (0b10001001011010011), 0b000000]          # as binary-encoded 17-bit short words and 6 bits of padding
             = [0b00000001, 0b01100011, 0b01000100, 0b10110100, 0b11000000]      # as binary-encoded octets in array
-            = [0x01, 0x63, 0x44, 0x5B, 0xC0]                                    # as byte array
-              0x0163445BC0                                                      # as hex
+            = [0x01, 0x63, 0x44, 0xB4, 0xC0]                                    # as byte array
+              0X016344B4C0                                                      # as hex
 
         This encoding was chosen so that when reading bytes as octets in the typical first-octet-is-the-high-4-bits fashion, a octet-to-binary conversion as demonstrated above would yield a high-to-low, left-to-right view of the "short words" and their components.
 
