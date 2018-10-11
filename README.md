@@ -8,4 +8,5 @@ Known implementations
 
 * [java-hll](https://github.com/aggregateknowledge/java-hll)
 * [js-hll](https://github.com/aggregateknowledge/js-hll)
-* [postgresql-hll](https://github.com/aggregateknowledge/postgresql-hll)
+* [postgresql-hll](https://github.com/citusdata/postgresql-hll)
+* [go-hll](https://github.com/segmentio/go-hll)
